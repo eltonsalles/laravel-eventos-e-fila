@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\OrderCreatedFully;
 use App\Events\OrderProductsSaveCompleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -23,5 +24,7 @@ class CalculateTotalOrderListener
         }
         $order->total = $sum;
         $order->save();
+
+        event(new OrderCreatedFully($order));
     }
 }
