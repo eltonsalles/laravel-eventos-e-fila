@@ -17,6 +17,6 @@ class SendMailCompletedListener
     public function handle(PaymentCompleted $event)
     {
         $order = $event->getOrder();
-        \Mail::to($order->user)->send(new \App\Mail\PaymentCompleted($order, $order->user));
+        \Mail::to($order->user)->queue(new \App\Mail\PaymentCompleted($order, $order->user));
     }
 }

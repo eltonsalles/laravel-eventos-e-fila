@@ -6,8 +6,10 @@ use App\Events\PaymentCompleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GenerateReceiptListener
+class GenerateReceiptListener implements ShouldQueue
 {
+    use InteractsWithQueue;
+
     /**
      * Handle the event.
      *
