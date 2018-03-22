@@ -18,6 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/products', 'ProductsController', ['only' => ['index']]); // only = apenas
-Route::resource('/stock-entries', 'StockEntriesController', ['only' => ['index', 'create', 'store']]); // only = apenas
-Route::resource('/stock-outputs', 'StockOutputsController', ['only' => ['index', 'create', 'store']]); // only = apenas
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/products', 'ProductsController', ['only' => ['index']]); // only = apenas
+    Route::resource('/stock-entries', 'StockEntriesController', ['only' => ['index', 'create', 'store']]); // only = apenas
+    Route::resource('/stock-outputs', 'StockOutputsController', ['only' => ['index', 'create', 'store']]); // only = apenas
+    Route::resource('/orders', 'OrdersController', ['only' => ['create', 'store']]); // only = apenas
+});

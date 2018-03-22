@@ -44,7 +44,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('products.index')}}">Produto</a></li>
-                    {{--<li><a href="{{route('orders.create')}}">Checkout</a></li>--}}
+                    <li><a href="{{route('orders.create')}}">Checkout</a></li>
                     <li><a href="{{route('stock-entries.index')}}">Entrada de Estoque</a></li>
                     <li><a href="{{route('stock-outputs.index')}}">Saída de Estoque</a></li>                        &nbsp;
                 </ul>
