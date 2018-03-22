@@ -13,11 +13,15 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\StockEntryCreated' => [
+        'App\Events\StockEntryCreated'  => [
             'App\Listeners\IncrementsStockListener',
         ],
-        'App\Events\ProductUpdating' => [
+        'App\Events\StockOutputCreated' => [
+            'App\Listeners\DecrementsStockListener',
+        ],
+        'App\Events\ProductUpdated'     => [
             'App\Listeners\CheckStockMaxListener',
+            'App\Listeners\CheckStockMinListener',
         ]
     ];
 
