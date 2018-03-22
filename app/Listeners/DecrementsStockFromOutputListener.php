@@ -3,11 +3,13 @@
 namespace App\Listeners;
 
 use App\Events\StockOutputCreated;
+use App\Stock\DecrementsStocks;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class DecrementsStockListener
+class DecrementsStockFromOutputListener
 {
+    use DecrementsStocks;
     /**
      * Handle the event.
      *
@@ -18,7 +20,6 @@ class DecrementsStockListener
     {
         $output = $event->getOutput();
         $product = $output->product;
-        $product->stock = $product->stock - $output->quantity;
-        $product->save();
+        $this->decrement($product, $output->quantity);
     }
 }
