@@ -7,7 +7,7 @@ use App\Mail\OrderCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendMailOrderCreated
+class SendMailOrderCreatedListener
 {
     /**
      * Handle the event.

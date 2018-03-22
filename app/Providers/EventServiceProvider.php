@@ -27,7 +27,7 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\CalculateTotalOrderListener',
         ],
         'App\Events\OrderCreatedFully' => [
-            'App\Listeners\SendMailOrderCreated',
+            'App\Listeners\SendMailOrderCreatedListener',
         ],
         'App\Events\OrderProductCreated' => [
             'App\Listeners\DecrementStockFromCheckoutListener',
